@@ -1,6 +1,6 @@
 # Recipe manager app
 
-####https://alan-damian.github.io/
+####https://alan-damian.github.io/recipe-manager/
 
 This project brings together some features of the spooncular api, such as searching, sorting, and filtering recipes along with their main information.
 
