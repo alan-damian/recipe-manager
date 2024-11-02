@@ -1,8 +1,12 @@
-# React + Vite
+# Recipe manager app
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+####https://alan-damian.github.io/
 
-Currently, two official plugins are available:
+This project brings together some features of the spooncular api, such as searching, sorting, and filtering recipes along with their main information.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## What you can do:
+Search for a recipe by typing its name, an ingredient or simply a letter to receive suggestions.
+Filter according to your personal tastes and specifications.
+Find additional information about the most popular types of diets.
+
+## The API is free to use in this project, so it has a limit of requests per day.
