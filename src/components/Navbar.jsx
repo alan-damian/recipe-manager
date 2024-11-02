@@ -19,13 +19,13 @@ function Navbar() {
         <div className="collapse navbar-collapse justify-content-between" id="navbarNav">
           <ul className="navbar-nav me-auto my-2 my-lg-0">
             <li className="nav-item">
-              <Link className="nav-link" to="/">Search</Link>
+              <Link className="nav-link" to="/recipe-manager">Search</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/saved">Saved Recipes</Link>
+              <Link className="nav-link" to="/recipe-manager/saved">Saved Recipes</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/info">Info</Link>
+              <Link className="nav-link" to="/recipe-manager/info">Info</Link>
             </li>
           </ul>
           <div className="d-flex align-items-center">

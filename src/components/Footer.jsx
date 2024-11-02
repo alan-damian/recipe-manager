@@ -32,13 +32,13 @@ const Footer = () => {
             <h5 className="mb-3">Quick Links</h5>
             <ul className="list-unstyled">
               <li className="mb-2">
-                <Link to="/" className="text-light text-decoration-none">Search</Link>
+                <Link to="/recipe-manager" className="text-light text-decoration-none">Search</Link>
               </li>
               <li className="mb-2">
-                <Link to="/saved" className="text-light text-decoration-none">Saved Recipes</Link>
+                <Link to="/recipe-manager/saved" className="text-light text-decoration-none">Saved Recipes</Link>
               </li>
               <li className="mb-2">
-                <Link to="/info" className="text-light text-decoration-none">Info</Link>
+                <Link to="/recipe-manager/info" className="text-light text-decoration-none">Info</Link>
               </li>
             </ul>
           </div>
