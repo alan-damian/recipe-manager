@@ -19,10 +19,10 @@ function App() {
       <Navbar />
       <main className="main-content"> {/* Cambia el nombre de la clase */}
         <Routes>
-          <Route path="/" element={<SearchRecipes />} />
-          <Route path="/saved" element={<SavedList />} />
-          <Route path="/info" element={<Info />} />
-          <Route path="/recipe/:id" element={<RecipeDetail />} />
+          <Route path="/recipe-manager" element={<SearchRecipes />} />
+          <Route path="/recipe-manager/saved" element={<SavedList />} />
+          <Route path="/recipe-manager/info" element={<Info />} />
+          <Route path="/recipe-manager/recipe/:id" element={<RecipeDetail />} />
         </Routes>
       </main>
       <Footer />
