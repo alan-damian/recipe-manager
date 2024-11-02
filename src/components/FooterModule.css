@@ -1,0 +1,87 @@
+/* src/components/FooterModule.css */
+.footer {
+  width: 100%;
+  background-color: #343a40;
+  padding: 1rem 0;
+  position: relative; /* Cambia de relative a static */
+  margin-top: auto;
+  bottom: auto; /* Elimina el bottom: -100rem */
+}
+  
+  /* Estilos para el contenedor principal del footer */
+  .footer .container {
+    padding: 1rem 0;
+  }
+  
+  /* Estilos para los enlaces sociales */
+  .footer .social-links {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .footer .social-links a {
+    transition: color 0.3s ease;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .footer .social-links a:hover {
+    color: #ffc107 !important;
+    transform: scale(1.1);
+  }
+  
+  /* Estilos para las listas de enlaces */
+  .footer .list-unstyled {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .footer .list-unstyled li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .footer .list-unstyled li a {
+    transition: color 0.3s ease;
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  .footer .list-unstyled li a:hover {
+    color: #ffc107 !important;
+    text-decoration: underline !important;
+  }
+  
+  /* Estilos para la línea divisoria */
+  .footer hr {
+    opacity: 0.2;
+    margin: 1rem 0;
+    border-color: #fff;
+  }
+  
+  /* Estilos para el texto de copyright */
+  .footer .text-center p {
+    margin: 0;
+    padding: 1rem 0;
+    font-size: 0.9rem;
+  }
+  
+  /* Estilos responsivos */
+  @media (max-width: 768px) {
+    .footer .col-md-4 {
+      margin-bottom: 2rem;
+    }
+    
+    .footer .social-links {
+      justify-content: center;
+    }
+    
+    .footer h5 {
+      text-align: center;
+    }
+    
+    .footer .list-unstyled {
+      text-align: center;
+    }
+  }

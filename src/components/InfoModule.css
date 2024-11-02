@@ -1,0 +1,196 @@
+/* src/components/InfoModule.css */
+
+.info-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: linear-gradient(rgba(255, 255, 255, 0.395), rgba(255, 255, 255, 0.309)), url('../assets/wallpaperDiets.jpeg');
+    background-size: cover;
+}
+
+.info-title {
+    text-align: center;
+    color: #333;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.diet-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.diet-card {
+    flex: 0 1 calc(33.333% - 2rem);
+    background: rgb(173, 173, 173);
+    border-radius: 15px;
+    color: #fff;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    min-height: 200px;
+}
+
+.diet-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.diet-card.active {
+    flex: 0 1 100%;
+    order: -1;
+}
+
+.diet-card h3 {
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    transition: color 0.3s ease;
+}
+
+.diet-details {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.diet-card.active .diet-details {
+    display: block;
+    opacity: 1;
+    margin-top: 1rem;
+}
+
+.diet-description {
+    color: #ffffff;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.diet-card.gluten-free {
+    background-image: url('../assets/gluten-freeBackground.jpg');
+    background-size: cover;
+}
+
+.diet-card.keto {
+    background-image: url('../assets/ketoBackground.jpg');
+    background-size: cover;
+}
+
+.diet-card.paleo {
+    background-image: url('../assets/paleoBackground.jpeg');
+    background-size: cover;
+}
+
+.diet-card.pescetarian {
+    background-image: url('../assets/pescetarianBackground.jpg');
+    background-size: cover;
+}
+
+.diet-card.vegan {
+    background-image: url('../assets/veganBackground.jpg');
+    background-size: cover;
+}
+
+.diet-card.vegetarian {
+    background-image: url('../assets/vegetarianBackground.jpg');
+    background-size: cover;
+}
+
+.benefits-section,
+.drawbacks-section {
+    margin-top: 1rem;
+}
+
+.benefits-section h4,
+.drawbacks-section h4 {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.benefits-section h4 {
+    color: #00ff3c;
+}
+
+.drawbacks-section h4 {
+    color: #ff0019;
+}
+
+.benefits-section ul,
+.drawbacks-section ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.benefits-section li,
+.drawbacks-section li {
+    color: #ffffff;
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    position: relative;
+}
+
+.benefits-section li::before,
+.drawbacks-section li::before {
+    position: absolute;
+    left: 0;
+}
+
+.benefits-section li::before {
+    content: "✓";
+    color: #00ff3c;
+}
+
+.drawbacks-section li::before {
+    content: "✕";
+    color: #ff0019;
+}
+
+/* Estilos para modo oscuro */
+[data-theme="dark"] .info-container {
+    background-color: #1a1a1a;
+}
+
+[data-theme="dark"] .info-title {
+    color: #fff;
+}
+
+[data-theme="dark"] .diet-card {
+    background-color: #2d2d2d;
+    color: #fff;
+}
+
+[data-theme="dark"] .diet-card h3 {
+    color: #66b0ff;
+}
+
+[data-theme="dark"] .diet-description,
+[data-theme="dark"] .benefits-section li,
+[data-theme="dark"] .drawbacks-section li {
+    color: #ccc;
+}
+
+/* Estilos responsivos */
+@media (max-width: 992px) {
+    .diet-card {
+        flex: 0 1 calc(50% - 1rem);
+    }
+}
+
+@media (max-width: 768px) {
+    .info-container {
+        padding: 1rem;
+    }
+
+    .diet-card {
+        flex: 0 1 100%;
+    }
+
+    .info-title {
+        font-size: 2rem;
+    }
+}

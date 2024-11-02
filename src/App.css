@@ -1,0 +1,24 @@
+/* App.css */
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: #f5deb3;
+  }
+  
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+}
+
+.main-content {
+  flex: 1;
+  padding-bottom: 60px; /* Ajusta este valor según la altura de tu footer */
+  margin-top: 56px; /* Altura del navbar fixed */
+}
+
+  [data-theme="dark"] body {
+    background-color: #595959;
+  }

@@ -1,0 +1,48 @@
+/* src/styles/theme.css */
+:root {
+    --background-color: #ffffff;
+    --text-color: #333333;
+    --card-background: #ffffff;
+    --navbar-background: #f8f9fa;
+    --border-color: #dee2e6;
+  }
+  
+  [data-theme="dark"] {
+    --background-color: #1a1a1a;
+    --text-color: #ffffff;
+    --card-background: #2d2d2d;
+    --navbar-background: #2d2d2d;
+    --border-color: #404040;
+  }
+  
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+  }
+  
+  
+  .card {
+    background-color: var(--card-background);
+    border-color: var(--border-color);
+  }
+  
+  .navbar {
+    background-color: var(--navbar-background) !important;
+  }
+  
+  .navbar-light .navbar-nav .nav-link {
+    color: var(--text-color);
+  }
+
+  [data-theme="dark"] #container {
+    background-image: linear-gradient(to bottom, rgba(245, 222, 179, 0) 0%, #595959 30%), url('../assets/wallpapermain.jpg');
+}
+  
+[data-theme="dark"] #recommend {
+  background-color: #595959;
+}
+
+[data-theme="dark"] #detailCont {
+  background-image: linear-gradient(to bottom, rgba(245, 222, 179, 0) 0%, #595959 40%), url('../assets/details.jpg');
+  }

@@ -1,0 +1,8 @@
+#detailCont {
+  background-image: linear-gradient(to bottom, rgba(245, 222, 179, 0) 0%, #f5deb3 40%), url('../assets/details.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  min-height: 100vh; /* Cambia height por min-height */
+  width: 100%;
+  padding-top: 56px; /* Espacio para el navbar */
+}

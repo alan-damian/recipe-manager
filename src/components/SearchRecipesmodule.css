@@ -1,0 +1,46 @@
+#container {
+  background-image: linear-gradient(to bottom, rgba(245, 222, 179, 0) 0%, #f5deb3 30%), url('../assets/wallpapermain.jpg');
+  background-repeat: no-repeat;
+  background-size: cover; /* Cambiado de 'contain' a 'cover' */
+  background-position: top center; /* Añadido para centrar la imagen */
+  min-height: 100vh;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  position: relative; /* Añadido para mejor control del posicionamiento */
+}
+
+#recommend {
+  background-color: #f5deb3;
+  padding: 2rem 0;
+  margin-top: 27rem;
+  width: 100%; /* Añadido para asegurar el ancho completo */
+  position: relative; /* Añadido para mantener el flujo correcto */
+}
+
+#searchBar {
+  margin-top: 50px;
+  width: 60%;
+  max-width: 800px; /* Opcional: para limitar el ancho máximo */
+}
+
+#searchSug {
+  width: 60%;
+  max-width: 800px; /* Opcional: para mantener consistencia con searchBar */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+/* Añadir media queries para responsividad */
+@media (max-width: 768px) {
+  #searchBar,
+  #searchSug {
+    width: 90%; /* Aumentar el ancho en pantallas pequeñas */
+  }
+  
+  #recommend {
+    margin-top: 20rem; /* Ajustar el margen en pantallas pequeñas */
+  }
+}

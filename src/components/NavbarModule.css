@@ -1,0 +1,8 @@
+/* styles/Navbar.css */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Asegúrate de que esté encima de otros elementos */
+}
