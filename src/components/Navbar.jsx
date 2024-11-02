@@ -9,7 +9,7 @@ function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
       <div className="container-fluid">
-        <Link className="navbar-brand d-flex align-items-center" to="/">
+        <Link className="navbar-brand d-flex align-items-center" to="/recipe-manager">
           <img src={logo} className="img-fluid me-2" alt="Logo" style={{ width: '40px', height: 'auto' }} />
           <h4 className="mb-0">RECIPE MANAGER</h4>
         </Link>
