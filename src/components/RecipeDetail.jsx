@@ -1,4 +1,3 @@
-// src/components/RecipeDetail.jsx
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
@@ -18,25 +17,31 @@ const RecipeDetail = () => {
   const [error, setError] = useState(null);
   const [imageLoaded, setImageLoaded] = useState(true);
 
-
-  
   useEffect(() => {
     const fetchRecipeData = async () => {
       try {
+        console.log('Realizando solicitud a la API...');
         if (!recipe) {
           const recipeResponse = await axios.get(
             `https://api.spoonacular.com/recipes/${id}/information?apiKey=78a1b697d08d49079386d8f2a90ec0b4`
           );
           setRecipeDetails(recipeResponse.data);
+          console.log('Variable recipeDetails actualizada:', recipeResponse.data);
+        } else {
+          setRecipeDetails(recipe);
+          console.log('Variable recipeDetails actualizada:', recipe);
         }
-        
+
         const ingredientsResponse = await axios.get(
           `https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=78a1b697d08d49079386d8f2a90ec0b4`
         );
         setIngredients(ingredientsResponse.data.ingredients);
+        console.log('Ingredientes obtenidos:', ingredientsResponse.data.ingredients);
       } catch (err) {
+        console.error('Error al realizar la solicitud a la API:', err);
         setError(`${err} Error al cargar los datos de la receta`);
       } finally {
+        console.log('Solicitud a la API finalizada.');
         setLoading(false);
       }
     };
@@ -54,20 +59,20 @@ const RecipeDetail = () => {
 
   if (loading) return <div className="text-center">Loading...</div>;
   if (error) return <div className="text-danger">{error}</div>;
-  
+
   const recipeToShow = recipe || recipeDetails;
   if (!recipeToShow) return <div className="text-danger">Recipe not found.</div>;
 
   return (
-    <div className="container-fluid my-4" id='detailCont'> {/* Cambiar a container-fluid para 100% width */}
+    <div className="container-fluid my-4" id='detailCont'>
       <h2 className="text-center">{recipeToShow.title}</h2>
       <div className="row mt-4">
-      <div className="col-md-4"> {/* Cambiar a col-md-4 para hacer la imagen más pequeña */}
-          <img 
-            style={{ width: '100%', height: 'auto' }} // Mantener la imagen responsiva
+        <div className="col-md-4">
+          <img
+            style={{ width: '100%', height: 'auto' }}
             className="img-fluid rounded mx-auto d-block"
-            src={imageLoaded ? recipeToShow.image : recipenotfound} 
-            alt={recipeToShow.title} 
+            src={imageLoaded ? recipeToShow.image : recipenotfound}
+            alt={recipeToShow.title}
             onError={() => setImageLoaded(false)}
           />
         </div>

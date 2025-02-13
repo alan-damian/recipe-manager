@@ -22,7 +22,7 @@ function App() {
           <Route path="/recipe-manager" element={<SearchRecipes />} />
           <Route path="/recipe-manager/saved" element={<SavedList />} />
           <Route path="/recipe-manager/info" element={<Info />} />
-          <Route path="/recipe-manager/recipe/:id" element={<RecipeDetail />} />
+          <Route path="/recipe/:id" element={<RecipeDetail />} />
         </Routes>
       </main>
       <Footer />
