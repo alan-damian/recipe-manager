@@ -1,5 +1,6 @@
 {
-  "homepage": "https://alan-damian.github.io/recipe-manager",
+  "homepage": "https://alan-damian.github.io/recipemanager",
+  "basename": "/recipemanager",
   "name": "recipe-manager-app",
   "private": true,
   "version": "0.0.0",
