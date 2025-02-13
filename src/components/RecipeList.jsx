@@ -28,7 +28,7 @@ const RecipeList = () => {
             <div className="card shadow-sm">
               <div className="card-body">
                 <h5 className="card-title text-success">{recipe.title}</h5>
-                <Link to={`/recipe/${recipe.id}`} className="btn btn-info me-2">Details</Link>
+                <Link to={`/recipe-manager/recipe/${recipe.id}`} className="btn btn-info me-2">Details</Link>
                 <button 
                   className="btn btn-danger" 
                   onClick={() => handleDelete(recipe.id)}
