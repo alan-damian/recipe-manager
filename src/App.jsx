@@ -1,5 +1,5 @@
 // src/App.js
-import { Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import SearchRecipes from './components/SearchRecipes';
 // import RecipeList from './components/RecipeList';
@@ -15,18 +15,20 @@ import Info from './components/Info';
 
 function App() {
   return (
-    <div className="app-container"> {/* Cambia el nombre de la clase */}
-      <Navbar />
-      <main className="main-content"> {/* Cambia el nombre de la clase */}
-        <Routes>
-          <Route path="/recipe-manager" element={<SearchRecipes />} />
-          <Route path="/recipe-manager/saved" element={<SavedList />} />
-          <Route path="/recipe-manager/info" element={<Info />} />
-          <Route path="/recipe/:id" element={<RecipeDetail />} />
-        </Routes>
-      </main>
-      <Footer />
-    </div>
+    <BrowserRouter basename="/recipe-manager">
+      <div className="app-container"> {/* Cambia el nombre de la clase */}
+        <Navbar />
+        <main className="main-content"> {/* Cambia el nombre de la clase */}
+          <Routes>
+            <Route path="/" element={<SearchRecipes />} />
+            <Route path="/saved" element={<SavedList />} />
+            <Route path="/info" element={<Info />} />
+            <Route path="/recipe/:id" element={<RecipeDetail />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 
