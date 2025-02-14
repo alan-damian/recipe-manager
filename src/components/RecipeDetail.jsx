@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-import { saveRecipe } from '../localStorage';
+import { useDispatch } from 'react-redux';
+import { addRecipe } from '../redux/reducers/recipesReducer';
 import recipenotfound from '../assets/recipeNotFound.jpeg';
 import './RecipeDetailModule.css';
-
-
 
 const RecipeDetail = ({ recipe }) => {
   const [recipeDetails, setRecipeDetails] = useState(null);
@@ -13,6 +12,7 @@ const RecipeDetail = ({ recipe }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [imageLoaded, setImageLoaded] = useState(true);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchRecipeData = async () => {
@@ -40,10 +40,9 @@ const RecipeDetail = ({ recipe }) => {
     fetchRecipeData();
   }, [recipe]);
 
-
   const handleSaveRecipe = () => {
     if (recipe) {
-      saveRecipe(recipe);
+      dispatch(addRecipe(recipe));
       alert('Receta guardada exitosamente!');
     }
   };
@@ -53,7 +52,6 @@ const RecipeDetail = ({ recipe }) => {
 
   const recipeToShow = recipeDetails || recipe;
   if (!recipeToShow) return <div className="text-danger">Recipe not found.</div>;
-
 
   return (
     <div className="container-fluid" id='detailCont'>
@@ -81,9 +79,6 @@ const RecipeDetail = ({ recipe }) => {
             ) : (
               <p>No ingredients for this one.</p>
             )}
-
-
-
           </section>
         </div>
       </div>
@@ -101,9 +96,6 @@ RecipeDetail.propTypes = {
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
-
-
-
   }).isRequired
 };
 

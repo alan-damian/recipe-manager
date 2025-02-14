@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 import { removeRecipe } from '../redux/reducers/recipesReducer';
 import RecipeDetail from './RecipeDetail';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const RecipeList = () => {
-  const { recipes, loading, error } = useSelector((state) => state.recipes);
+const RecipeList = ({ recipes }) => {
   const dispatch = useDispatch();
   const [showDetailsId, setShowDetailsId] = useState(null);
 
@@ -17,12 +17,8 @@ const RecipeList = () => {
     setShowDetailsId(showDetailsId === id ? null : id);
   };
 
-  if (loading) {
-    return <div className="text-center my-4">Loading...</div>;
-  }
-
-  if (error) {
-    return <div className="text-center text-danger my-4">Error: {error}</div>;
+  if (!recipes || recipes.length === 0) {
+    return <div className="text-center my-4">No recipes found.</div>;
   }
 
   return (
@@ -58,6 +54,16 @@ const RecipeList = () => {
       </div>
     </div>
   );
+};
+
+RecipeList.propTypes = {
+  recipes: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+      image: PropTypes.string,
+    })
+  ).isRequired,
 };
 
 export default RecipeList;

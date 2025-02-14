@@ -21,9 +21,7 @@ function Navbar() {
             <li className="nav-item">
               <Link className="nav-link" to="/recipe-manager">Search</Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/recipe-manager/saved">Saved Recipes</Link>
-            </li>
+
             <li className="nav-item">
               <Link className="nav-link" to="/recipe-manager/info">Info</Link>
             </li>

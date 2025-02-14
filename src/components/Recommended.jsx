@@ -1,8 +1,8 @@
 // src/components/Recommended.jsx
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import recipenotfound from '../assets/recipeNotFound.jpeg';
+import RecipeDetail from './RecipeDetail';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Recommended = () => {
@@ -10,6 +10,7 @@ const Recommended = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [imageLoaded, setImageLoaded] = useState({});
+  const [showDetailsId, setShowDetailsId] = useState(null);
 
   useEffect(() => {
     const fetchRecommendedRecipes = async () => {
@@ -31,6 +32,10 @@ const Recommended = () => {
       ...prev,
       [recipeId]: false
     }));
+  };
+
+  const toggleDetails = (id) => {
+    setShowDetailsId(showDetailsId === id ? null : id);
   };
 
   if (loading) {
@@ -60,9 +65,17 @@ const Recommended = () => {
                 />
                 <div className="card-body">
                   <h5 className="card-title text-success">{recipe.title}</h5>
-                  <Link to={`/recipe/${recipe.id}`} className="btn btn-primary me-2">
-                    View Details
-                  </Link>
+                  <button 
+                    className="btn btn-info me-2"
+                    onClick={() => toggleDetails(recipe.id)}
+                  >
+                    {showDetailsId === recipe.id ? 'Hide Details' : 'Details'}
+                  </button>
+                  {showDetailsId === recipe.id && (
+                    <div className="mt-3">
+                      <RecipeDetail recipe={recipe} />
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

@@ -1,6 +1,6 @@
 // src/components/SearchRecipes.jsx
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchRecipes } from '../redux/actions/recipeActions';
 import axios from 'axios';
 import Downshift from 'downshift';
@@ -16,6 +16,7 @@ const SearchRecipes = () => {
   const [recommendedRecipes, setRecommendedRecipes] = useState([]);
   const [showAdvancedSearch, setShowAdvancedSearch] = useState(false);
   const dispatch = useDispatch();
+  const { recipes } = useSelector((state) => state.recipes);
 
   const handleSearch = (searchParams = '') => {
     if (query || searchParams) {
@@ -98,7 +99,7 @@ const SearchRecipes = () => {
             {showAdvancedSearch && (
               <AdvancedSearch onSearch={handleSearch} />
             )}
-            <RecipeList />
+            <RecipeList recipes={recipes} />
             <section id='recommend'>
               <Recommended recipes={recommendedRecipes} />
             </section>
