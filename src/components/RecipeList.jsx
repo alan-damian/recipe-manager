@@ -1,15 +1,20 @@
-// src/components/RecipeList.jsx
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeRecipe } from '../redux/reducers/recipesReducer';
-import { Link } from 'react-router-dom';
+import RecipeDetail from './RecipeDetail';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const RecipeList = () => {
   const { recipes, loading, error } = useSelector((state) => state.recipes);
   const dispatch = useDispatch();
-  
+  const [showDetailsId, setShowDetailsId] = useState(null);
+
   const handleDelete = (id) => {
     dispatch(removeRecipe(id));
+  };
+
+  const toggleDetails = (id) => {
+    setShowDetailsId(showDetailsId === id ? null : id);
   };
 
   if (loading) {
@@ -24,17 +29,28 @@ const RecipeList = () => {
     <div className="container my-4">
       <div className="row">
         {recipes.map(recipe => (
-          <div key={recipe.id} className="col-md-4 mb-3">
+          <div key={recipe.id} className="col-md-12 mb-3">
             <div className="card shadow-sm">
               <div className="card-body">
                 <h5 className="card-title text-success">{recipe.title}</h5>
-                <Link to={`/recipe-manager/recipe/${recipe.id}`} className="btn btn-info me-2">Details</Link>
+                <button 
+                  className="btn btn-info me-2"
+                  onClick={() => toggleDetails(recipe.id)}
+                >
+                  {showDetailsId === recipe.id ? 'Hide Details' : 'Details'}
+                </button>
                 <button 
                   className="btn btn-danger" 
                   onClick={() => handleDelete(recipe.id)}
                 >
                   Delete
                 </button>
+                
+                {showDetailsId === recipe.id && (
+                  <div className="mt-3">
+                    <RecipeDetail recipe={recipe} />
+                  </div>
+                )}
               </div>
             </div>
           </div>

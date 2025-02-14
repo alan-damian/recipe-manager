@@ -2,8 +2,6 @@
 import { Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import SearchRecipes from './components/SearchRecipes';
-// import RecipeList from './components/RecipeList';
-import RecipeDetail from './components/RecipeDetail';
 import Footer from './components/Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SavedList from './components/SavedList';
@@ -22,7 +20,6 @@ function App() {
           <Route path="/recipe-manager" element={<SearchRecipes />} />
           <Route path="/recipe-manager/saved" element={<SavedList />} />
           <Route path="/recipe-manager/info" element={<Info />} />
-          <Route path="/recipe-manager/recipe/:id" element={<RecipeDetail />} />
         </Routes>
       </main>
       <Footer />
